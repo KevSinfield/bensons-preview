@@ -77,6 +77,7 @@ address { font-style: normal; }
 .header-phone { font-weight: 700; text-decoration: none; font-size: 1.2rem; letter-spacing: .01em; white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
 .header-phone:hover { color: var(--blue); }
 .menu-btn { display: none; }
+.header-home { display: none; }
 .mobile-menu { border-top: 1px solid var(--rule); background: #fff; padding: 8px var(--gutter) 28px; max-height: calc(100vh - 100px); overflow: auto; }
 .mobile-menu ul { list-style: none; margin: 0; padding: 0; }
 .mobile-menu li a { display: flex; align-items: center; min-height: 60px; border-bottom: 1px solid var(--rule); font: 700 1.75rem/1 var(--serif); text-decoration: none; }
@@ -289,6 +290,8 @@ address { font-style: normal; }
 /* ================= responsive ================= */
 @media (max-width: 1100px) {
   .main-nav, .header-phone { display: none; }
+  .header-home { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; border-radius: var(--radius); }
+  .header-home:hover { background: var(--paper); }
   .header-actions { margin-left: auto; border-left: 0; padding-left: 0; }
   .menu-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; background: transparent; border: 1.5px solid var(--ink); border-radius: var(--radius); font: 600 1rem/1 var(--sans); color: var(--ink); cursor: pointer; }
   .menu-icon { position: relative; width: 18px; height: 12px; }
