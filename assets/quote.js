@@ -110,6 +110,7 @@
     var req = collect();
     D.save(req);
     var info = D.describe(req);
+    if (window.BensonsTrack) window.BensonsTrack("Sent a test quote request (" + info.typeLabel + ")");
     var first = req.name.split(/\s+/)[0];
     confirmBox.querySelector("[data-c-name]").textContent = first ? ", " + first : "";
     confirmBox.querySelector("[data-c-summary]").textContent = info.summaryLine + " · reference " + req.ref;

@@ -86,10 +86,12 @@
     $("ask-subject").value = info.draft.subject;
     $("ask-body").value = info.draft.body;
     clearStatus(); openDialog($("ask-dialog")); $("ask-body").focus();
+    if (window.BensonsTrack) window.BensonsTrack("Opened the follow-up email draft");
   });
   $("prep-btn").addEventListener("click", function () {
     $("prep-body").value = D.describe(current).brief;
     clearStatus(); openDialog($("prep-dialog")); $("prep-body").focus();
+    if (window.BensonsTrack) window.BensonsTrack("Opened the estimating brief");
   });
   function clearStatus() { document.querySelectorAll("[data-copy-status]").forEach(function (s) { s.textContent = ""; }); }
   document.querySelectorAll("[data-copy]").forEach(function (b) {

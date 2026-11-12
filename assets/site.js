@@ -1,4 +1,32 @@
-/* Bensons preview: menu + shared demo-request helpers. Nothing here sends data anywhere. */
+/* Bensons preview: visit notifications, menu, shared demo-request helpers.
+   The only thing sent anywhere is a short visit note (page name, ?from= tag, device type) to ntfy.sh.
+   Nothing typed into the forms is ever included. */
+window.BensonsTrack = (function () {
+  "use strict";
+  var TOPIC = "https://ntfy.sh/bensons-preview-i293je26vq";
+  var host = location.hostname;
+  var store = function (kind, k, v) { try { var s = window[kind]; if (v === undefined) return s.getItem(k); s.setItem(k, v); } catch (e) { return null; } };
+  var params = new URLSearchParams(location.search);
+  if (params.has("notrack")) store("localStorage", "bensons-notrack", "1");
+  var off = store("localStorage", "bensons-notrack") === "1" || !/github\.io$/.test(host);
+  var tag = (params.get("from") || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 20);
+  if (tag) store("sessionStorage", "bensons-from", tag); else tag = store("sessionStorage", "bensons-from") || "";
+  function device() {
+    var u = navigator.userAgent, d = /iPhone/.test(u) ? "iPhone" : /iPad/.test(u) ? "iPad" : /Android/.test(u) ? "Android" : /Macintosh/.test(u) ? "Mac" : /Windows/.test(u) ? "Windows" : "Other device";
+    var b = /Edg\//.test(u) ? "Edge" : /CriOS|Chrome\//.test(u) ? "Chrome" : /FxiOS|Firefox\//.test(u) ? "Firefox" : /Safari\//.test(u) ? "Safari" : "";
+    return d + (b ? " " + b : "");
+  }
+  function send(what) {
+    if (off) return;
+    var msg = what + " · " + (tag ? "from: " + tag : "no tag") + " · " + device();
+    try { fetch(TOPIC, { method: "POST", body: msg, keepalive: true, headers: { "Content-Type": "text/plain" } }).catch(function () {}); } catch (e) {}
+  }
+  var page = (document.title.split(" | ")[0] || "Page").replace(/^Bensons Printing Company$/, "Homepage");
+  var seenKey = "bensons-seen-" + location.pathname;
+  if (store("sessionStorage", seenKey) !== "1") { store("sessionStorage", seenKey, "1"); send("Viewed " + page); }
+  return send;
+})();
+
 (function () {
   "use strict";
   var y = document.querySelector("[data-year]");
