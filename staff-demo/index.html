@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="color-scheme" content="light">
+<title>Enquiry review | Bensons staff demo</title>
+<meta name="description" content="Illustrative staff view for the quote demo.">
+<link rel="icon" href="../assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/site.css?v=15">
+<script src="../assets/site.js?v=15" defer></script>
+<script src="../assets/staff.js?v=15" defer></script>
+</head>
+<body class="staff-body">
+<a class="skip" href="#main">Skip to content</a>
+<div class="preview-bar" role="note"><strong>Staff demo</strong><span> · illustrative only · dummy data · nothing is sent</span></div>
+<header class="staff-header">
+  <div class="wrap staff-header-inner">
+    <span class="logo"><img src="../assets/img/bensons-logo.png" alt="Bensons Printing Company" width="541" height="140" loading="eager" decoding="async"></span>
+    <span class="staff-label">Staff workspace</span>
+    <a class="staff-back" href="../get-a-quote/">← Customer view</a>
+  </div>
+</header>
+<main id="main" class="staff-main">
+  <div class="wrap">
+    <div class="staff-title">
+      <h1>Enquiry review</h1>
+      <p class="pill">Illustrative staff view</p>
+    </div>
+
+    <div class="staff-empty" id="staff-empty" hidden>
+      <h2>No demo request yet</h2>
+      <p>Submit a request on the <a href="../get-a-quote/">customer quote page</a>, then choose “Open staff demo”. Or load the sample to see how it works.</p>
+      <button type="button" class="btn btn-navy" id="load-sample">Load sample: 250 × A5 brochures</button>
+    </div>
+
+    <div class="staff-grid" id="staff-grid" hidden>
+      <section class="review-card" aria-labelledby="job-headline">
+        <div class="job-head">
+          <span class="job-icon" data-job-icon></span>
+          <div>
+            <h2 id="job-headline" data-headline></h2>
+            <p class="job-meta" data-meta></p>
+          </div>
+        </div>
+        <ul class="job-rows" data-rows></ul>
+        <div class="flags" data-flags-wrap>
+          <h3 class="sr-only">Needs confirming</h3>
+          <ul data-flags></ul>
+        </div>
+        <div class="staff-actions">
+          <button type="button" class="btn btn-outline-navy" id="ask-btn"><svg class="ico ico-chat" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12a8 7 0 1 1 3.4 5.7L3.5 19l1.2-3.4A6.8 6.8 0 0 1 4 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Ask a question</span></button>
+          <button type="button" class="btn btn-navy" id="prep-btn"><svg class="ico ico-layers" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 2.5 8 12 13l9.5-5zM2.5 12 12 17l9.5-5M2.5 16 12 21l9.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Prepare for estimating</span></button>
+        </div>
+        <p class="no-price">No price is calculated here, and nothing connects to estimating software.</p>
+      </section>
+
+      <div class="staff-side">
+        <section class="side-card" aria-labelledby="cust-title">
+          <h2 id="cust-title">Customer</h2>
+          <dl class="kv" data-customer></dl>
+        </section>
+        <section class="side-card" aria-labelledby="msg-title">
+          <h2 id="msg-title">Customer’s message</h2>
+          <div data-message></div>
+        </section>
+        <section class="side-card" aria-labelledby="spec-title">
+          <h2 id="spec-title">Specifications supplied</h2>
+          <dl class="kv spec" data-specs></dl>
+        </section>
+        <section class="side-card recent" aria-labelledby="recent-title" data-recent-wrap hidden>
+          <h2 id="recent-title">Other demo requests</h2>
+          <ul data-recent></ul>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+
+<dialog class="sheet" id="ask-dialog" aria-labelledby="ask-title">
+  <form method="dialog" class="sheet-inner">
+    <h2 id="ask-title">Follow-up draft</h2>
+    <p class="sheet-note">Demo: this draft isn’t sent. Edit it, then copy it into an email if you want to use it.</p>
+    <p class="sheet-to">To: <span data-ask-to></span></p>
+    <label for="ask-subject">Subject</label>
+    <input id="ask-subject" type="text">
+    <label for="ask-body">Message</label>
+    <textarea id="ask-body" rows="12"></textarea>
+    <div class="sheet-actions">
+      <button type="button" class="btn btn-navy" data-copy="ask"><svg class="ico ico-copy" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Copy draft</span></button>
+      <button type="submit" class="btn btn-ghost">Close</button>
+      <span class="copy-status" role="status" data-copy-status></span>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="sheet" id="prep-dialog" aria-labelledby="prep-title">
+  <form method="dialog" class="sheet-inner">
+    <h2 id="prep-title">Brief for the estimator</h2>
+    <p class="sheet-note">Demo: a copyable summary. No price is worked out, and nothing is sent to estimating software.</p>
+    <label for="prep-body" class="sr-only">Estimating brief</label>
+    <textarea id="prep-body" class="brief" rows="18" readonly></textarea>
+    <div class="sheet-actions">
+      <button type="button" class="btn btn-navy" data-copy="prep"><svg class="ico ico-copy" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Copy brief</span></button>
+      <button type="submit" class="btn btn-ghost">Close</button>
+      <span class="copy-status" role="status" data-copy-status></span>
+    </div>
+  </form>
+</dialog>
+<template id="icons"><svg class="ico ico-book" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg class="ico ico-tag" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12.5V4a1 1 0 0 1 1-1h8.5L21 11.5 12.5 20z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.6" fill="currentColor"/></svg><svg class="ico ico-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg class="ico ico-question" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.8.4-1.1.9-1.1 1.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16.8" r="1.1" fill="currentColor"/></svg><svg class="ico ico-layers" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 2.5 8 12 13l9.5-5zM2.5 12 12 17l9.5-5M2.5 16 12 21l9.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg class="ico ico-calendar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8"/></svg><svg class="ico ico-clip" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 11.5 12.2 19.3a5 5 0 0 1-7.1-7.1l8.1-8.1a3.3 3.3 0 0 1 4.7 4.7l-8 8a1.7 1.7 0 0 1-2.4-2.4l7.3-7.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="ico ico-flag" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 21V4M5 4h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg class="ico ico-ruler" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 16.5 16.5 3 21 7.5 7.5 21zM7 12.5l2 2M10 9.5l2 2M13 6.5l2 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg class="ico ico-box" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 3.5 7.5v9L12 21l8.5-4.5v-9zM3.5 7.5 12 12l8.5-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></template>
+</body>
+</html>
